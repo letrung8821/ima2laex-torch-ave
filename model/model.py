@@ -20,13 +20,13 @@ class Im2LatexModel(nn.Module):
             nn.Conv2d(3, 64, 3, 1, 1),
             nn.BatchNorm2d(64),
             nn.ReLU(),
-            nn.Dropout2d(p=0.2)
+            nn.Dropout2d(p=0.2),
             nn.MaxPool2d(2, 2, 1),
 
             nn.Conv2d(64, 128, 3, 1, 1),
             nn.BatchNorm2d(128),
             nn.ReLU(),
-            nn.Dropout2d(p=0.2)
+            nn.Dropout2d(p=0.2),
             nn.MaxPool2d(2, 2, 1),
 
             nn.Conv2d(128, 256, 3, 1, 1),
@@ -37,13 +37,13 @@ class Im2LatexModel(nn.Module):
             nn.Conv2d(256, 256, 3, 1, 1),
             nn.BatchNorm2d(256),
             nn.ReLU(),
-            nn.Dropout2d(p=0.2)
+            nn.Dropout2d(p=0.2),
             nn.MaxPool2d((2, 1), (2, 1), 0),
 
             nn.Conv2d(256, enc_out_dim, 3, 1, 0),
             nn.BatchNorm2d(enc_out_dim),
             nn.ReLU(),
-            nn.Dropout2d(p=0.2)
+            nn.Dropout2d(p=0.2),
         )
 
         self.rnn_decoder = nn.LSTMCell(dec_rnn_h+emb_size, dec_rnn_h)
